@@ -1,3 +1,4 @@
+
 public interface ArrayInterface<T> {
     public void add(T item);
     public T getByIndex(int index);

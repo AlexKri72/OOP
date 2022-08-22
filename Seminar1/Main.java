@@ -12,10 +12,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Person> family = new ArrayList<>();
-        family.add(new Person("Dmitriy", "Vasiliev"));
-        family.add(new Person("Oleg", "Vasiliev"));
-        family.add(new Person("Olga", "Vasilieva"));
-        family.add(new Person("Maria", "Vasilieva"));
+        family.add(new Person("Dmitriy", "Vasiliev", 1970));
+        family.add(new Person("Oleg", "Vasiliev", 1995));
+        family.add(new Person("Olga", "Vasilieva", 1997));
+        family.add(new Person("Maria", "Vasilieva", 1972));
 
         printFamily(family);
 
