@@ -8,21 +8,21 @@ public class ExportService {
     Scanner sc = new Scanner(System.in);
 
     public void getChoice() {
-        boolean repeatInput = true;
-        while (repeatInput) {
+
+        while (true) {
             System.out.println("Export to: 1-XML, 2-CSV, 3-JSON");
             switch (sc.next()) {
                 case ("1") -> {
                     exportToXML();
-                    repeatInput = false;
+                    break;
                 }
                 case ("2") -> {
                     exportToCSV();
-                    repeatInput = false;
+                    break;
                 }
                 case ("3") -> {
                     exportToJSON();
-                    repeatInput = false;
+                    break;
                 }
                 default -> System.out.println("Noup! That`s not correct! Try again");
             }
