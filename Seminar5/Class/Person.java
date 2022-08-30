@@ -1,4 +1,4 @@
-package Seminar5;
+package Seminar5.Class;
 
 public abstract class Person {
     String name;

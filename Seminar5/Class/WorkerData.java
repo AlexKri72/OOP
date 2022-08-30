@@ -1,4 +1,4 @@
-package Seminar5;
+package Seminar5.Class;
 
 public class WorkerData {
     private static Long id = 0l;

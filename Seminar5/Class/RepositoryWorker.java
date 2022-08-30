@@ -1,4 +1,4 @@
-package Seminar5;
+package Seminar5.Class;
 
 import java.util.List;
 
