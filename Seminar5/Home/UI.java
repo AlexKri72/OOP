@@ -13,7 +13,7 @@ public class UI {
         while (true) {
 
             System.out.println(
-                    "Выберите что будем делать:\n1 - Добавить пользователя\n2 - Удалить пользователя\n3 - Обновить лист сообщений\n4 - Написать сообщение\n5 - Поиск по сообщениям\n6 - Выход");
+                    "Выберите что будем делать:\n1 - Добавить пользователя\n2 - Удалить пользователя\n3 - Обновить лист сообщений\n4 - Написать сообщение\n5 - Редактировать сообщение\n6 - Поиск по сообщениям\n7 - Выход");
             String choice = sc.nextLine();
             switch (choice) {
                 case ("1") -> {
@@ -71,9 +71,20 @@ public class UI {
                 case ("4") -> {
                     String inputMessage = sc.nextLine();
                     Date date = new Date(System.currentTimeMillis());
-                    MessageRepository.addMessage(new MessageToUser(date, UsersRepository.getUser(nick), inputMessage));
+                    MessageRepository.addMessage(new MessageToUser(MessageRepository.number, date,
+                            UsersRepository.getUser(nick), inputMessage));
                 }
                 case ("5") -> {
+                    MessageRepository.updateMsgList();
+                    System.out.println("Введите номер сообщения, которое будем редактировать: ");
+                    Integer messageID = sc.nextInt();
+                    System.out.println("Введите новый текст: ");
+                    String messageText = sc.nextLine();
+                    Date date = new Date(System.currentTimeMillis());
+                    MessageRepository.editMessage(messageID, new MessageToUser(MessageRepository.number, date,
+                            UsersRepository.getUser(nick), messageText));
+                }
+                case ("6") -> {
                     String search = sc.nextLine();
                     for (MessageToUser item : MessageRepository.getMessageList()) {
                         if (item.textMessage.contains(search)) {
@@ -81,7 +92,7 @@ public class UI {
                         }
                     }
                 }
-                case ("6") -> {
+                case ("7") -> {
                     System.out.println("До свидания!");
                     break;
                 }
