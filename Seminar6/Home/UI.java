@@ -78,11 +78,17 @@ public class UI {
                     MessageRepository.updateMsgList();
                     System.out.println("Введите номер сообщения, которое будем редактировать: ");
                     Integer messageID = sc.nextInt();
-                    System.out.println("Введите новый текст: ");
-                    String messageText = sc.nextLine();
-                    Date date = new Date(System.currentTimeMillis());
-                    MessageRepository.editMessage(messageID, new MessageToUser(MessageRepository.number, date,
-                            UsersRepository.getUser(nick), messageText));
+                    if (MessageRepository.getUser(messageID).equals(UsersRepository.getUser(nick))
+                            || UsersRepository.getUser(nick).getRole().equals(Role.MODERATOR) || UsersRepository
+                                    .getUser(nick).getRole().equals(Role.EDITOR)) {
+                        System.out.println("Введите новый текст: ");
+                        String messageText = sc.nextLine();
+                        Date date = new Date(System.currentTimeMillis());
+                        MessageRepository.editMessage(messageID, new MessageToUser(MessageRepository.number, date,
+                                UsersRepository.getUser(nick), messageText));
+                    } else {
+                        System.out.println("Вы не можете редактировать чужие сообщения!");
+                    }
                 }
                 case ("6") -> {
                     String search = sc.nextLine();

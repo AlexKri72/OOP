@@ -30,4 +30,16 @@ public class MessageRepository {
         }
         message.set(index, element);
     }
+
+    public static BaseUser getUser(Integer number) {
+        User user = null;
+        for (MessageToUser item : message) {
+            if (item.getID().equals(number)) {
+                user = (User) item.user;
+            }
+
+        }
+        return user;
+
+    }
 }
