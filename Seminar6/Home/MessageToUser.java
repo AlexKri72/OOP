@@ -1,4 +1,4 @@
-package Seminar5.Home;
+package Seminar6.Home;
 
 import java.sql.Date;
 
